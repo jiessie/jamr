@@ -14,11 +14,11 @@ export WNHOME="${JAMR_HOME}/tools/WordNet-3.0"
 export SCALA="${JAMR_HOME}/tools/scala-2.11.2/bin/scala"
 export SMATCH="${JAMR_HOME}/scripts/smatch_v1_0/smatch_modified.py"
 
-export TRAIN_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/training/training.txt"
-export DEV_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/dev/dev.txt"
-export TEST_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/test/test.txt"
+export TRAIN_FILE="${JAMR_HOME}/data/little-prince-1.6/amr-bank-struct-v1.6-training.txt"
+export DEV_FILE="${JAMR_HOME}/data/little-prince-1.6/amr-bank-struct-v1.6-dev.txt"
+export TEST_FILE="${JAMR_HOME}/data/little-prince-1.6/amr-bank-struct-v1.6-test.txt"
 
-export MODEL_DIR="${JAMR_HOME}/models/Semeval-2016_LDC2015E86"  # ideally keep this the same as the config_SOMETHING.sh
+export MODEL_DIR="${JAMR_HOME}/models/Semeval-2016_Little_Prince"  # ideally keep this the same as the config_SOMETHING.sh
 
 # The options specified below will override any options specified in the scripts
 # CONCEPT_ID_TRAINING_OPTIONS and RELATION_ID_TRAINING_OPTIONS will override PARSER_OPTIONS
@@ -30,12 +30,13 @@ export PARSER_OPTIONS="
     --stage1-synthetic-concepts NER,DateExpr,OntoNotes,NEPassThrough,PassThrough,WordNetPassThrough,verbs,nominalizations
     --stage1-predicates ${JAMR_HOME}/resources/OntoNotes-v4-predicates.txt
     --stage1-phrase-counts ${MODEL_DIR}/wordCounts.train
+    --stage1-wiki
     --stage1-features ${STAGE1_FEATURES}
     --stage2-decoder LR
     --stage2-approx-decoder Greedy
     --stage2-features rootConcept,rootDependencyPathv1,bias,typeBias,self,fragHead,edgeCount,distance,logDistance,posPathv3,dependencyPathv4,conceptBigram,dependencyPathv5
     --stage2-labelset ${JAMR_HOME}/resources/labelset-r4
-    --output-format AMR
+    --output-format AMR,nodes,edges,root
     --ignore-parser-errors
     --print-stack-trace-on-errors
 "

@@ -14,11 +14,11 @@ export WNHOME="${JAMR_HOME}/tools/WordNet-3.0"
 export SCALA="${JAMR_HOME}/tools/scala-2.11.2/bin/scala"
 export SMATCH="${JAMR_HOME}/scripts/smatch_v1_0/smatch_modified.py"
 
-export TRAIN_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/training/training.txt"
-export DEV_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/dev/dev.txt"
-export TEST_FILE="${JAMR_HOME}/data/LDC2015E86/data/amrs/split/test/test.txt"
+export TRAIN_FILE="${JAMR_HOME}/data/LDC2016E25/data/amrs/split/training/training.txt"
+export DEV_FILE="${JAMR_HOME}/data/LDC2016E25/data/amrs/split/dev/dev.txt"
+export TEST_FILE="${JAMR_HOME}/data/LDC2016E25/data/amrs/split/test/test.txt"
 
-export MODEL_DIR="${JAMR_HOME}/models/Semeval-2016_LDC2015E86"  # ideally keep this the same as the config_SOMETHING.sh
+export MODEL_DIR="${JAMR_HOME}/models/Semeval-2016_LDC2016E25"  # ideally keep this the same as the config_SOMETHING.sh
 
 # The options specified below will override any options specified in the scripts
 # CONCEPT_ID_TRAINING_OPTIONS and RELATION_ID_TRAINING_OPTIONS will override PARSER_OPTIONS
