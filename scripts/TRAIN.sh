@@ -49,7 +49,7 @@ echo "  ----- Evaluation on Test: Smatch (gold concept ID) -----" | tee -a "${MO
 "${JAMR_HOME}/scripts/smatch_v1_0/smatch_modified.py" --pr -f "${MODEL_DIR}/test.decode.stage2only" "${TEST_FILE}" 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "  ----- Evaluation on Test: Smatch (oracle) -----" | tee -a "${MODEL_DIR}/RESULTS.txt"
 ./cmd.test.decode.oracle
-"${JAMR_HOME}/scripts/smatch_v1_0/smatch_modified.py" --pr -f "${MODEL_DIR}/test.decode.oracle" "${DEV_FILE}" 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
+"${JAMR_HOME}/scripts/smatch_v1_0/smatch_modified.py" --pr -f "${MODEL_DIR}/test.decode.oracle" "${TEST_FILE}" 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "" | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "" | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "  ----- Evaluation on Test: Spans -----" | tee -a "${MODEL_DIR}/RESULTS.txt"

@@ -1,1 +1,1 @@
-config_Semeval-2016_Little_Prince.sh
+config_Semeval-2016_LDC2014T12.sh

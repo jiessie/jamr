@@ -672,7 +672,7 @@ object Graph {
     def parse(amr: String) : Graph = {
         val graph = parser.parseAll(parser.node, amr) match {
             case parser.Success(e, _) => Graph(e, new ArrayBuffer[Span](), Map[String, Node](), Map[String, Node]())
-            case _ => { assert(false, "Could not parse AMR: "+amr); Graph.AMREmpty }
+            case _ => { assert(false, "Could not parse AMR: "+amr.map(_.toInt)); Graph.AMREmpty }
         }
         graph.makeVariables()
         graph.unifyVariables()

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INPUT="${DEV_FILE}"
+INPUT="${TEST_FILE}"
 OUTPUT="${MODEL_DIR}/test.decode.oracle"
 
 STAGE1_WEIGHTS="${MODEL_DIR}/stage1-weights"
