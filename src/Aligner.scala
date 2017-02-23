@@ -59,6 +59,8 @@ object Aligner {
                 logger(2,block)
                 logger(2,"****************************")
 //block.split("\n").foreach(println)
+                // extrastr starts with "#", using regex "^#.*" will fail, don't know
+                // why?
                 val extrastr : String = block.split("\n").filter(_.startsWith("#")).mkString("\n")
                 val amrstr : String = block.split("\n").filterNot(_.startsWith("#")).mkString("\n")
                 println(extrastr)
