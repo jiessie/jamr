@@ -3,5 +3,5 @@ set -ueo pipefail
 
 for AMR in "${TRAIN_FILE}" "${DEV_FILE}" "${TEST_FILE}"
 do
-    cat "${AMR}.aligned.realigned" | sed 's/:op[^ ]*/:op/g' > "${AMR}.aligned.realigned.no_opN"
+    cat "${AMR}.aligned.forced" | sed 's/:op[^ ]*/:op/g' > "${AMR}.aligned.realigned.no_opN"
 done

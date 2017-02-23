@@ -31,11 +31,12 @@ export PARSER_OPTIONS="
     --stage1-predicates ${JAMR_HOME}/resources/OntoNotes-v4-predicates.txt
     --stage1-phrase-counts ${MODEL_DIR}/wordCounts.train
     --stage1-features ${STAGE1_FEATURES}
+    --stage1-wiki
     --stage2-decoder LR
     --stage2-approx-decoder Greedy
     --stage2-features rootConcept,rootDependencyPathv1,bias,typeBias,self,fragHead,edgeCount,distance,logDistance,posPathv3,dependencyPathv4,conceptBigram,dependencyPathv5
     --stage2-labelset ${JAMR_HOME}/resources/labelset-r4
-    --output-format AMR
+    --output-format AMR,nodes,edges,root
     --ignore-parser-errors
     --print-stack-trace-on-errors
 "

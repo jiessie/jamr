@@ -59,7 +59,7 @@ object Aligner {
                 logger(2,block)
                 logger(2,"****************************")
 //block.split("\n").foreach(println)
-                val extrastr : String = block.split("\n").filter(_.matches("^#.*")).mkString("\n")
+                val extrastr : String = block.split("\n").filter(_.startsWith("#")).mkString("\n")
                 val amrstr : String = block.split("\n").filterNot(_.startsWith("#")).mkString("\n")
                 println(extrastr)
                 val amr = Graph.parse(amrstr)
