@@ -211,11 +211,13 @@ case class Graph(var root: Node, spans: ArrayBuffer[Span], getNodeById: Map[Stri
                 val SpanRegex(corefStr, start, end, nodeStr) = spanStr
                 val nodeIds = nodeStr.split("[+]").toList.sorted
                 val words = SpanLoader.getWords(start.toInt, end.toInt, sentence)   // TODO: use addSpan function
-                val amr = SpanLoader.getAmr(nodeIds, this)
-                val coref = corefStr match {
-                    case "*" => true
-                    case "" => false
-                }
+                val realNodeId = nodeIds.filterNot(_.contains("~"))
+                val amr = SpanLoader.getAmr(realNodeId, this)
+                val coref = nodeIds.exists(_.contains("~"))
+//                val coref = corefStr match {
+//                    case "*" => true
+//                    case "" => false
+//                }
                 spans += Span(start.toInt, end.toInt, nodeIds, words, amr, coref)
                 for (id <- nodeIds) {
                     getNodeById(id).addSpan(spans.size-1, coref)
