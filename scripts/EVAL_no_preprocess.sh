@@ -29,7 +29,7 @@ if [ -z "$2" ]; then
     OUTPUT="${MODEL_DIR}/$(basename $1)"
 else
     STAGE2_WEIGHTS="${MODEL_DIR}/stage2-weights.iter$2"
-    OUTPUT="${MODEL_DIR}/$(basename $1).iter$2"
+    OUTPUT="${MODEL_DIR}/$(basename $1)"
 fi
 
 INPUT="$OUTPUT.snt"
@@ -40,9 +40,9 @@ ${JAMR_HOME}/run AMRParser \
   --stage1-concept-table "${MODEL_DIR}/conceptTable.train" \
   --stage1-weights "${STAGE1_WEIGHTS}" \
   --stage2-weights "${STAGE2_WEIGHTS}" \
-  --dependencies "${OUTPUT}.deps" \
+  --dependencies "${OUTPUT}.snt.deps" \
   --training-data "${OUTPUT}.aligned.no_opN" \
-  --ner "${OUTPUT}.IllinoisNER" \
+  --ner "${OUTPUT}.snt.IllinoisNER" \
   --tok "${OUTPUT}.snt.tok" \
   -v 0 \
   --stage1-eval \
@@ -56,9 +56,9 @@ ${JAMR_HOME}/run AMRParser \
   --stage1-concept-table "${MODEL_DIR}/conceptTable.train" \
   --stage1-weights "${STAGE1_WEIGHTS}" \
   --stage2-weights "${STAGE2_WEIGHTS}" \
-  --dependencies "${OUTPUT}.deps" \
+  --dependencies "${OUTPUT}.snt.deps" \
   --training-data "${OUTPUT}.aligned.no_opN" \
-  --ner "${OUTPUT}.IllinoisNER" \
+  --ner "${OUTPUT}.snt.IllinoisNER" \
   --tok "${OUTPUT}.snt.tok" \
   -v 0 \
   ${PARSER_OPTIONS} \

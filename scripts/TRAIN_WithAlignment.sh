@@ -54,4 +54,12 @@ echo "" | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "" | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo "  ----- Evaluation on Test: Spans -----" | tee -a "${MODEL_DIR}/RESULTS.txt"
 tail -n 3 "${MODEL_DIR}/test.decode.allstages.err" | tee -a "${MODEL_DIR}/RESULTS.txt"
+
+echo ""
+
+pushd ${JAMR_HOME}/scripts/amr-evaluation
+./evaluation.sh ${MODEL_DIR}/dev.decode.allstages ${DEV_FILE} 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
+./evaluation.sh ${MODEL_DIR}/test.decode.allstages ${TEST_FILE} 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
+popd
+
 echo ""
