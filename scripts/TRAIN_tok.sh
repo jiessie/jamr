@@ -9,7 +9,7 @@ if [ -z "$JAMR_HOME" ]; then
 fi
 
 pushd "$JAMR_HOME/scripts/preprocessing"
-./PREPROCESS.sh
+./PREPROCESS_snt_tok.sh
 popd
 
 # Train
@@ -56,9 +56,3 @@ echo "  ----- Evaluation on Test: Spans -----" | tee -a "${MODEL_DIR}/RESULTS.tx
 tail -n 3 "${MODEL_DIR}/test.decode.allstages.err" | tee -a "${MODEL_DIR}/RESULTS.txt"
 echo ""
 
-pushd ${JAMR_HOME}/scripts/amr-evaluation
-./evaluation.sh ${MODEL_DIR}/dev.decode.allstages ${DEV_FILE} 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
-./evaluation.sh ${MODEL_DIR}/test.decode.allstages ${TEST_FILE} 2>&1 | tee -a "${MODEL_DIR}/RESULTS.txt"
-popd
-
-echo ""
