@@ -26,7 +26,7 @@ class Features(featureNames: List[String], phraseCounts: i.Map[List[String], Int
     val ffTable = m.Map[String, FeatureFunction](
         "bias" -> ffBias,
         "length" -> ffLength,
-//        "firstMatch" -> ffFirstMatch,
+        "firstMatch" -> ffFirstMatch,
         "numberIndicator" -> ffNumberIndicator,
         "badConcept" -> ffBadConcept,
         "sentenceMatch" -> ffSentenceMatch,
