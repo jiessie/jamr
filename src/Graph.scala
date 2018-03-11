@@ -225,7 +225,7 @@ case class Graph(var root: Node, spans: ArrayBuffer[Span], getNodeById: Map[Stri
       } catch {
         // TODO: catch malformed input (Regex match error, or toInt err)
         case e: Throwable =>
-          logger(1, "****************** MALFORMED SPAN: " + spanStr)
+          logger(1, "****************** MALFORMED SPAN: " + spanStr + e.getMessage())
       }
     }
   }
