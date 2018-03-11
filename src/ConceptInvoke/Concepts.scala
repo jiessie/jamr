@@ -1,11 +1,9 @@
 package edu.cmu.lti.nlp.amr.ConceptInvoke
-import edu.cmu.lti.nlp.amr._
-import edu.cmu.lti.nlp.amr.Train._
 import edu.cmu.lti.nlp.amr.BasicFeatureVector._
-import edu.cmu.lti.nlp.amr.ConceptInvoke.PhraseConceptPair._
+import edu.cmu.lti.nlp.amr._
 
 import scala.collection.mutable.ArrayBuffer
-import scala.collection.{mutable => m, immutable => i}
+import scala.collection.{immutable => i, mutable => m}
 
 object Concepts {
     val implementedFeatures = m.Set("fromNERTagger", "dateExpression")  // TODO: check
@@ -312,7 +310,6 @@ class Concepts(options: m.Map[Symbol, String],
                 mkMonth(matching, month)
             }
         }
-
         return list.toList
     }
 

@@ -9,6 +9,19 @@ import edu.stanford.nlp.ling.CoreAnnotations._
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation
 
 
+/**
+  * ConllToken didn't support coreference
+  * @param index
+  * @param form
+  * @param lemma
+  * @param pos
+  * @param cpos
+  * @param feats
+  * @param gov
+  * @param deprel
+  * @param phead
+  * @param pdeprel
+  */
 case class ConllToken(index: Option[Int],
                       form: Option[String],
                       lemma: Option[String],

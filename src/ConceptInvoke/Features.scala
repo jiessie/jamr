@@ -1,10 +1,8 @@
 package edu.cmu.lti.nlp.amr.ConceptInvoke
-import edu.cmu.lti.nlp.amr._
-import edu.cmu.lti.nlp.amr.Train._
 import edu.cmu.lti.nlp.amr.BasicFeatureVector._
+import edu.cmu.lti.nlp.amr._
 
-import scala.collection.mutable.ArrayBuffer
-import scala.collection.{mutable => m, immutable => i}
+import scala.collection.{immutable => i, mutable => m}
 
 /**************************** Feature Functions *****************************/
 // TODO: Would this be faster if the ffTable was replaced with boolean variables and 
@@ -28,7 +26,7 @@ class Features(featureNames: List[String], phraseCounts: i.Map[List[String], Int
     val ffTable = m.Map[String, FeatureFunction](
         "bias" -> ffBias,
         "length" -> ffLength,
-        "firstMatch" -> ffFirstMatch,
+//        "firstMatch" -> ffFirstMatch,
         "numberIndicator" -> ffNumberIndicator,
         "badConcept" -> ffBadConcept,
         "sentenceMatch" -> ffSentenceMatch,
@@ -49,6 +47,7 @@ class Features(featureNames: List[String], phraseCounts: i.Map[List[String], Int
         return FeatureVector(m.Map("len" -> concept.words.size))
     }
 
+    // it use firstMatch to delete the coreference.
     def ffFirstMatch(input: Input, concept: PhraseConceptPair, start: Int, end: Int) : FeatureVector = {
         if (input.sentence.indexOfSlice(concept.words) == start) {
             FeatureVector(m.Map("firstMatch" -> 1.0))

@@ -262,6 +262,7 @@ case class Graph(var root: Node, spans: ArrayBuffer[Span], getNodeById: Map[Stri
     logger(2, "nodeIds = " + nodeIds.reverse)
     logger(2, "concepts = " + nodeIds.reverse.map(x => getNodeById(x).concept))
     spans += Span(start, end, nodeIds, sentence.slice(start, end).mkString(" "), nodes2.reverse.apply(0), coRef = false)
+    // TODO: read coref annotation, add coref for this span
   }
 
   def addSpan(start: Int, end: Int, nodeIds: List[String], coRef: Boolean, sentence: Array[String]) {
@@ -697,7 +698,7 @@ object Graph {
     val graph = parser.parseAll(parser.node, amr) match {
       case parser.Success(e, _) => Graph(e, new ArrayBuffer[Span](), Map[String, Node](), Map[String, Node]())
       case _ => {
-        assert(false, "Could not parse AMR: " + amr.map(_.toInt)); Graph.AMREmpty
+        assert(false, "Could not parse AMR: " + amr); Graph.AMREmpty
       }
     }
     graph.makeVariables()
