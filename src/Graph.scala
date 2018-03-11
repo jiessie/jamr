@@ -603,7 +603,7 @@ case class Graph(var root: Node, spans: ArrayBuffer[Span], getNodeById: Map[Stri
 
   def addVariableToSpans() {
     for (span <- spans) {
-      if (span.nodeIds.map(x => getNodeById(x)).filter(x => x.name != None).size == 0) {
+      if (span.nodeIds.nonEmpty && span.nodeIds.map(x => getNodeById(x)).filter(x => x.name != None).size == 0) {
         logger(1, "WARNING: Adding a variable name to a span")
         val node = getNodeById(span.nodeIds(0))
         var c: Char = node.concept(0)
